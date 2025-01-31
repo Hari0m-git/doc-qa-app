@@ -720,9 +720,10 @@ COLLECTION_NAME = "document_qa"
 
 class DocumentQA:
     def __init__(self):
-        self.api_key = os.getenv("AI21_API_KEY")
+        # Replace usage of os.getenv with st.secrets to get the key from Streamlit secrets
+        self.api_key = st.secrets["AI21_API_KEY"]
         if not self.api_key:
-            raise ValueError("AI21_API_KEY not found in environment variables")
+            raise ValueError("AI21_API_KEY not found in secrets")
         
         # AI21 chat model
         self.llm = ChatAI21(
