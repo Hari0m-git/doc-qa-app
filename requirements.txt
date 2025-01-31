@@ -10,3 +10,4 @@ huggingface-hub
 chromadb
 openpyxl
 xlrd
+pysqlite3-binary
