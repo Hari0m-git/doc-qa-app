@@ -665,6 +665,11 @@
 
 
 #Version 3 - Can find mean, sum, etc of the columns for numerical data.
+# Place these lines at the VERY TOP of streamlit_app.py,
+# before importing anything else that uses chromadb
+__import__("pysqlite3")
+import sys
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 
 import streamlit as st
 import pandas as pd
